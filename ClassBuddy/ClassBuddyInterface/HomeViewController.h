@@ -17,7 +17,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) IBOutlet FBLoginView *loginView;
+@property (weak, nonatomic) IBOutlet UIImageView *logoView;
 @property (nonatomic) DBManager* myDataBase;
 @property (nonatomic) NSString* userEmail;
 @property (nonatomic) NSArray* shownCourses;
+
 @end

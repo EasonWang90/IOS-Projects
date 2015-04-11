@@ -38,7 +38,6 @@
     [self.navigationController setNavigationBarHidden:YES];
     [self.loginView setReadPermissions:@[@"public_profile", @"email", @"user_friends"]];
     self.loginView.delegate = self;
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,14 +56,14 @@
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     self.statusLabel.text = @"You're logged in";
     [self.viewCourses setEnabled:true];
-    //[self.addACourse setEnabled:true];
+    [self.view insertSubview:self.logoView atIndex:0];
 }
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
     self.profilePictureView.profileID = nil;
     self.nameLabel.text = @"";
     self.statusLabel.text= @"Please log in!";
     [self.viewCourses setEnabled:false];
-    //[self.addACourse setEnabled:true];
+    [self.view insertSubview:self.logoView aboveSubview:self.profilePictureView];
 }
 
 - (IBAction)courseList:(id)sender

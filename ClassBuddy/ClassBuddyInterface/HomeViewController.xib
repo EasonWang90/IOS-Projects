@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
                 <outlet property="loginView" destination="YTg-is-jDc" id="aOi-Bg-lcT"/>
+                <outlet property="logoView" destination="fcs-8A-nkc" id="tKF-wi-9K9"/>
                 <outlet property="nameLabel" destination="164-nD-TXg" id="zQL-ki-YpU"/>
                 <outlet property="profilePictureView" destination="vBE-K2-rOp" id="qNo-I0-CdJ"/>
                 <outlet property="statusLabel" destination="RZd-RK-Fsf" id="616-G0-lll"/>
