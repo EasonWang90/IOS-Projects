@@ -110,17 +110,18 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     //NSArray *ipath = [NSArray arrayWithObject:indexPath];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+       
         /*Set the finished from 0 to 1*/
         NSArray *localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
-        NSLog(@"%lu",[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
+        NSLog(@"%lu",(unsigned long)[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
         long notificationCount =[[[UIApplication sharedApplication] scheduledLocalNotifications]count];
         if (notificationCount != 0) {
             UILocalNotification *localNotification = [localNotifications objectAtIndex:indexPath.row];
-            NSLog(@"row:%lu",[indexPath row]);
+            NSLog(@"row:%lu",(long)[indexPath row]);
             // NSLog(@"%@",localNotification);
             //localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] - 1;
             [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
-            NSLog(@"%lu",[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
+            NSLog(@"%lu",(unsigned long)[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
         }
         
         

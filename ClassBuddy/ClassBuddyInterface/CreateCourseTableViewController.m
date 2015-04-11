@@ -19,7 +19,7 @@
 
 
 @implementation UITableViewCell (customdelete)
-/*
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -34,7 +34,7 @@
         }
     }
 }
-*/
+
 @end
 
 
@@ -106,6 +106,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *editCell = [tableView cellForRowAtIndexPath:indexPath];
+    [editCell setNeedsLayout];
     return @"Add";
 }
 
@@ -181,13 +183,5 @@
     }
     return filteredCourseArray;
 }
-
-/*
-// Show custom blue colour when editing
-- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView reloadData];
-}
-*/
 
 @end
