@@ -10,7 +10,7 @@
 #import "DBManager.h"
 #import "Person.h"
 
-@interface CourseListTableViewController : UITableViewController
+@interface CourseListTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic) NSMutableArray *courseArray;
 @property (nonatomic) DBManager *myDatabase;

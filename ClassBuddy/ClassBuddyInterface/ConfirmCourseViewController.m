@@ -46,6 +46,7 @@
     self.dateTimeField.delegate = self;
     self.professorField.delegate = self;
     self.locationField.delegate = self;
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundHome.png"]];
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -30,6 +30,8 @@
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save)];
     self.navigationItem.rightBarButtonItem = rightBarButton;
     self.itemText.delegate = self;
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundHome"]];
    
     // Do any additional setup after loading the view from its nib.
 }

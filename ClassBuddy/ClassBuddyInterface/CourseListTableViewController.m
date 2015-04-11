@@ -46,7 +46,6 @@
     _courseArray = [[NSMutableArray alloc] initWithArray:[_myDatabase getRegisteredCourseList:_userEmail]];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"AddedCourseCell"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundHome.png"]];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -74,19 +73,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AddedCourseCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AddedCourseCell"];
     // Set the text on the cell to the courses description
     //NSArray *courses = [[CourseList sharedCourseList] allCourses];
-    
     Course *course = [_courseArray objectAtIndex:indexPath.row];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     // Add the course code label to the cells view
     UILabel *courseCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 60)];
     [courseCodeLabel setFont:[UIFont fontWithName:@"Helvetica Neue" size:16]];
     [courseCodeLabel center];
     courseCodeLabel.text = course.courseCode;
     [cell.contentView addSubview:courseCodeLabel];
+    
     
     // Set up the rest of the cell
     UILabel *courseDescLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 0, 235, 60)];

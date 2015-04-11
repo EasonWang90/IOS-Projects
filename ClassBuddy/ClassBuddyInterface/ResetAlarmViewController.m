@@ -31,8 +31,7 @@
     _dueDate.text = _event.dueDate;
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save)];
     self.navigationItem.rightBarButtonItem = rightBarButton;
-    
-    // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundHome.png"]];
 }
 
 - (void)didReceiveMemoryWarning

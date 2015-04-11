@@ -33,7 +33,6 @@
 		FC0C6E361AC27A9E006F688D /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC0C6E341AC27A9E006F688D /* HomeViewController.xib */; };
 		FC0C6E381AC27AAE006F688D /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC0C6E371AC27AAE006F688D /* logo.jpg */; };
 		FC0C6E3A1AC28046006F688D /* backgroundHome.png in Resources */ = {isa = PBXBuildFile; fileRef = FC0C6E391AC28046006F688D /* backgroundHome.png */; };
-		FC0C6E3D1AC282A3006F688D /* CourseListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0C6E3C1AC282A3006F688D /* CourseListTableViewController.m */; };
 		FC0C6E541AC29110006F688D /* ConfirmCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0C6E521AC29110006F688D /* ConfirmCourseViewController.m */; };
 		FC0C6E551AC29110006F688D /* ConfirmCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC0C6E531AC29110006F688D /* ConfirmCourseViewController.xib */; };
 		FC42B0F51AC5BD5400944C49 /* CourseList.m in Sources */ = {isa = PBXBuildFile; fileRef = FC42B0F41AC5BD5400944C49 /* CourseList.m */; };
@@ -41,6 +40,7 @@
 		FC4F520A1AC4655D005C5C67 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4F52091AC4655D005C5C67 /* Course.m */; };
 		FC4F520D1AC4656C005C5C67 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4F520C1AC4656C005C5C67 /* Event.m */; };
 		FC4F52161AC467FA005C5C67 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4F52151AC467FA005C5C67 /* Person.m */; };
+		FC53D4E41AD9B005003ACB64 /* CourseListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC53D4E31AD9B005003ACB64 /* CourseListTableViewController.m */; };
 		FC961AF21AC43C9C00204A09 /* CreateCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC961AF11AC43C9C00204A09 /* CreateCourseTableViewController.m */; };
 		FCC479001AC976B700E40749 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC478FF1AC976B700E40749 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
@@ -93,7 +93,6 @@
 		FC0C6E371AC27AAE006F688D /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
 		FC0C6E391AC28046006F688D /* backgroundHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundHome.png; sourceTree = "<group>"; };
 		FC0C6E3B1AC282A3006F688D /* CourseListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListTableViewController.h; sourceTree = "<group>"; };
-		FC0C6E3C1AC282A3006F688D /* CourseListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListTableViewController.m; sourceTree = "<group>"; };
 		FC0C6E511AC29110006F688D /* ConfirmCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmCourseViewController.h; sourceTree = "<group>"; };
 		FC0C6E521AC29110006F688D /* ConfirmCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmCourseViewController.m; sourceTree = "<group>"; };
 		FC0C6E531AC29110006F688D /* ConfirmCourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmCourseViewController.xib; sourceTree = "<group>"; };
@@ -107,6 +106,7 @@
 		FC4F520C1AC4656C005C5C67 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		FC4F52141AC467FA005C5C67 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		FC4F52151AC467FA005C5C67 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		FC53D4E31AD9B005003ACB64 /* CourseListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListTableViewController.m; sourceTree = "<group>"; };
 		FC961AF01AC43C9C00204A09 /* CreateCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCourseTableViewController.h; sourceTree = "<group>"; };
 		FC961AF11AC43C9C00204A09 /* CreateCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCourseTableViewController.m; sourceTree = "<group>"; };
 		FCC478FF1AC976B700E40749 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 				FC0C6E331AC27A9E006F688D /* HomeViewController.m */,
 				FC0C6E341AC27A9E006F688D /* HomeViewController.xib */,
 				FC0C6E3B1AC282A3006F688D /* CourseListTableViewController.h */,
-				FC0C6E3C1AC282A3006F688D /* CourseListTableViewController.m */,
+				FC53D4E31AD9B005003ACB64 /* CourseListTableViewController.m */,
 				FC961AF01AC43C9C00204A09 /* CreateCourseTableViewController.h */,
 				FC961AF11AC43C9C00204A09 /* CreateCourseTableViewController.m */,
 				FC0C6E511AC29110006F688D /* ConfirmCourseViewController.h */,
@@ -363,7 +363,7 @@
 				FC4F52161AC467FA005C5C67 /* Person.m in Sources */,
 				FC0C6E0D1AC27A61006F688D /* main.m in Sources */,
 				6A66D5801AC8CE3400464939 /* CourseViewController.m in Sources */,
-				FC0C6E3D1AC282A3006F688D /* CourseListTableViewController.m in Sources */,
+				FC53D4E41AD9B005003ACB64 /* CourseListTableViewController.m in Sources */,
 				FC0C6E351AC27A9E006F688D /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

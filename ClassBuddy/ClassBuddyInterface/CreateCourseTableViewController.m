@@ -19,7 +19,7 @@
 
 
 @implementation UITableViewCell (customdelete)
-
+/*
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -34,7 +34,7 @@
         }
     }
 }
-
+*/
 @end
 
 
@@ -43,6 +43,7 @@
 @synthesize initialCourseArray;
 @synthesize filteredCourseArray;
 @synthesize registeredCourses;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -135,6 +136,7 @@
     return cell;
 }
 
+// Set the cell height for each cell in the table
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 65;
@@ -152,12 +154,13 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source and add it to the Registered courses.
-        //[[CourseList sharedCourseList] addCourse:[courseArray objectAtIndex:indexPath.row]];
         Course *selectedCourse = [initialCourseArray objectAtIndex:indexPath.row];
         NSString *courseCode = selectedCourse.courseCode;
+        
         [_myDataBase registerACourseCourseCode:courseCode UserEmail:_userEmail];
         [_myDataBase getRegisteredCourseList:_userEmail];
         [initialCourseArray removeObjectAtIndex:indexPath.row];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     else /*** As of right now we aren't adding new rows ***/
@@ -185,13 +188,13 @@
     return filteredCourseArray;
 }
 
-
-// Show Blue colour when editing
+/*
+// Show custom blue colour when editing
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView reloadData];
 }
-
+*/
 
 /*
 // Override to support rearranging the table view.
