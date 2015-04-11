@@ -53,16 +53,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)addEvents:(id)sender
-{
-    EventViewController *eventViewController = [[EventViewController alloc] initWithNibName:@"EventViewController" bundle:nil];
-   
-    eventViewController.myDataBase = _myDataBase;
-    eventViewController.courseCode = _course.courseCode;
-    eventViewController.userEmail = _userEmail;
-    [self.navigationController pushViewController:eventViewController animated:YES];
-}
-
+// Take the user to the eventlist view
 - (IBAction)showEvents:(id)sender
 {
     EventListViewController *eventList = [[EventListViewController alloc] init];

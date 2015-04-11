@@ -14,7 +14,6 @@
 @interface HomeViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *viewCourses;
-@property (weak, nonatomic) IBOutlet UIButton *addACourse;
 
 @end
 
@@ -66,15 +65,6 @@
     self.statusLabel.text= @"Please log in!";
     [self.viewCourses setEnabled:false];
     //[self.addACourse setEnabled:true];
-}
-
-- (IBAction)addCourse:(id)sender
-{
-    [self.navigationController setNavigationBarHidden:NO];
-    CreateCourseTableViewController *createCourseViewController = [[CreateCourseTableViewController alloc] init];
-    [createCourseViewController setMyDataBase:_myDataBase];
-    [createCourseViewController setUserEmail:_userEmail];
-    [self.navigationController pushViewController:createCourseViewController animated:YES];
 }
 
 - (IBAction)courseList:(id)sender

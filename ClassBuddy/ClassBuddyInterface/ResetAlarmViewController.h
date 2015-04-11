@@ -18,4 +18,5 @@
 @property (nonatomic) Event *event;
 @property (nonatomic) NSString *courseCode;
 @property (nonatomic) NSString *userEmail;
+
 @end

@@ -140,7 +140,7 @@
         // Delete the row from the data source
         
         [[self tableView] deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"Do you wonna SHARE" delegate:self cancelButtonTitle:@"Not this time" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", nil];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"Do you want to SHARE" delegate:self cancelButtonTitle:@"Not this time" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", nil];
         [actionSheet showInView:self.view];
 
         //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];

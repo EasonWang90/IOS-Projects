@@ -15,4 +15,5 @@
 @property (nonatomic) NSMutableArray *courseArray;
 @property (nonatomic) DBManager *myDatabase;
 @property (nonatomic) NSString *userEmail;
+
 @end

@@ -21,4 +21,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *locationField;
 @property (nonatomic) DBManager *myDataBase;
 @property (nonatomic) NSString *userEmail;
+
 @end

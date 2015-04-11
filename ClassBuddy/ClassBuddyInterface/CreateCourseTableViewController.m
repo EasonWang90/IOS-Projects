@@ -97,16 +97,8 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-//#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 1;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [filteredCourseArray count];
 }
@@ -127,12 +119,14 @@
     }
     // First get the course
     Course *newCourse = [filteredCourseArray objectAtIndex:indexPath.row];
+    // Set its attributes
     cell.textLabel.numberOfLines = 3;
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
     cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:11];
     cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
     cell.textLabel.text = newCourse.description;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", newCourse.professor, newCourse.location];
+    // Return the cell
     return cell;
 }
 
@@ -145,7 +139,7 @@
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
+    // Return YES to allow conditional editing
     return YES;
 }
 
@@ -165,7 +159,7 @@
     }
     else /*** As of right now we aren't adding new rows ***/
         if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
 }
 
@@ -195,35 +189,5 @@
     [tableView reloadData];
 }
 */
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
-
 
 @end

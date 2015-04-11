@@ -19,4 +19,5 @@
 @property IBOutlet UISearchBar *courseSearchBar;
 @property (nonatomic) DBManager *myDataBase;
 @property (weak, nonatomic) NSString *userEmail;
+
 @end

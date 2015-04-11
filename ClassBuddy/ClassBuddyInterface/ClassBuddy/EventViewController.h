@@ -20,4 +20,5 @@
 @property DBManager *myDataBase;
 @property (nonatomic) NSString *courseCode;
 @property (nonatomic) NSString *userEmail;
+
 @end

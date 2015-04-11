@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Person : NSObject
+
 @property (nonatomic) NSString* personName;
 @property (nonatomic) NSArray* courseCodes;
+
 @end

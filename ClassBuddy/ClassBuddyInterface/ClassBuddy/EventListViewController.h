@@ -20,4 +20,5 @@
 @property (nonatomic) NSMutableArray *unfinishedEventList;
 @property (nonatomic) NSString *selectedEventName;
 @property (nonatomic) Event *finishedEvent;
+
 @end

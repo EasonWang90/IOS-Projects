@@ -40,4 +40,5 @@
               EventName: (NSString *)eventName;
 - (BOOL)createNewCourse: (Course *)course;
 - (BOOL)deleteACourse: (NSString *)courseCode UserEmail: (NSString *)userEmail;
+
 @end
