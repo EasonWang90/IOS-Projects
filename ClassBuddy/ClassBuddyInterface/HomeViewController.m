@@ -57,15 +57,15 @@
 }
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     self.statusLabel.text = @"You're logged in";
-    [self.viewCourses setEnabled:true];
-    [self.addACourse setEnabled:true];
+    [self.viewCourses setEnabled:false];
+    //[self.addACourse setEnabled:true];
 }
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
     self.profilePictureView.profileID = nil;
     self.nameLabel.text = @"";
     self.statusLabel.text= @"Please log in!";
     [self.viewCourses setEnabled:true];
-    [self.addACourse setEnabled:true];
+    //[self.addACourse setEnabled:true];
 }
 
 - (IBAction)addCourse:(id)sender
