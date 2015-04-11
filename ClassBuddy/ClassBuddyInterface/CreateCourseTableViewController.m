@@ -17,18 +17,18 @@
 
 @end
 
-/*
+
 @implementation UITableViewCell (customdelete)
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    UIColor *colour = [UIColor colorWithRed:0.1 green:0.75 blue:0.0 alpha:0.7];
+    UIColor *colour = [UIColor colorWithRed:0.1 green:0.75 blue:0.9 alpha:0.6];
     for (UIView *subview in self.subviews) {
         //iterate through subviews until UITableViewCellDeleteConfirmationView
         for(UIView *subview2 in subview.subviews){
             if ([NSStringFromClass([subview2 class]) isEqualToString:@"UITableViewCellDeleteConfirmationView"]) {
-                //Set background to green
+                //Set background to custom blue color
                 ((UIView*)[subview2.subviews firstObject]).backgroundColor=colour;
             }
         }
@@ -36,7 +36,7 @@
 }
 
 @end
-/**/
+
 
 @implementation CreateCourseTableViewController
 
@@ -121,15 +121,15 @@
     static NSString *cellId = @"createCourseCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
    
-    
     if(cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
     // First get the course
     Course *newCourse = [filteredCourseArray objectAtIndex:indexPath.row];
-    cell.textLabel.numberOfLines = 2;
+    cell.textLabel.numberOfLines = 3;
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
     cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:11];
+    cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
     cell.textLabel.text = newCourse.description;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", newCourse.professor, newCourse.location];
     return cell;
@@ -184,13 +184,14 @@
     }
     return filteredCourseArray;
 }
-/*
-// Show Green colour when editing
+
+
+// Show Blue colour when editing
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView reloadData];
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.

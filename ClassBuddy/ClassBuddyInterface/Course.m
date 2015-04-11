@@ -32,7 +32,7 @@
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ %@ %@", _courseCode, _courseName, _courseTime];
+    return [NSString stringWithFormat:@"%@ %@, %@", _courseCode, _courseName, _courseTime];
 }
 
 -(void)dealloc

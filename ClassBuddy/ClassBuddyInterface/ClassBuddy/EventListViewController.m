@@ -51,14 +51,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [_unfinishedEventList count];
 }
@@ -113,15 +111,15 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         /*Set the finished from 0 to 1*/
         NSArray *localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
-        NSLog(@"%d",[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
-        int notificationCount =[[[UIApplication sharedApplication] scheduledLocalNotifications]count];
+        NSLog(@"%lu",[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
+        long notificationCount =[[[UIApplication sharedApplication] scheduledLocalNotifications]count];
         if (notificationCount != 0) {
             UILocalNotification *localNotification = [localNotifications objectAtIndex:indexPath.row];
-            NSLog(@"row:%d",[indexPath row]);
+            NSLog(@"row:%lu",[indexPath row]);
             // NSLog(@"%@",localNotification);
             //localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] - 1;
             [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
-            NSLog(@"%d",[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
+            NSLog(@"%lu",[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
         }
         
         
@@ -274,11 +272,11 @@
     NSArray *localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
     if ([localNotifications count] != 0) {
         UILocalNotification *localNotification = [localNotifications objectAtIndex:indexPath.row];
-        NSLog(@"row:%d",[indexPath row]);
+        NSLog(@"row:%ld",(long)[indexPath row]);
         // NSLog(@"%@",localNotification);
         //localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] - 1;
         [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
-        NSLog(@"%d",[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
+        NSLog(@"%lu",(unsigned long)[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
     }
 
     Event *selectedEvent = [_unfinishedEventList objectAtIndex:indexPath.row];

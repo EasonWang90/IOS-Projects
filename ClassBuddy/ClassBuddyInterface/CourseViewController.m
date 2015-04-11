@@ -35,6 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     // Set Labels here
+    self.courseNameLabel.adjustsFontSizeToFitWidth = YES;
     if(_course) {
         self.courseIdLabel.text = _course.courseCode;
         self.courseNameLabel.text = _course.courseName;
@@ -42,6 +43,8 @@
         self.professorLabel.text = _course.professor;
         self.locationLabel.text = _course.location;
     }
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundHome.png"]];
 }
 
 - (void)didReceiveMemoryWarning

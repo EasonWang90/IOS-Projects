@@ -44,10 +44,8 @@
 {
     [super viewDidLoad];
     _courseArray = [[NSMutableArray alloc] initWithArray:[_myDatabase getRegisteredCourseList:_userEmail]];
-    [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"AddedCourseCell"];
-    UIImage *background = [UIImage imageNamed:@"backgroundHome.png"];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:background];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundHome.png"]];
     
 }
 
@@ -81,12 +79,24 @@
     //NSArray *courses = [[CourseList sharedCourseList] allCourses];
     
     Course *course = [_courseArray objectAtIndex:indexPath.row];
-    cell.textLabel.numberOfLines = 2;
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
-    cell.textLabel.text = course.description;
-    cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", course.professor, course.courseTime];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+    // Add the course code label to the cells view
+    UILabel *courseCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 60)];
+    [courseCodeLabel setFont:[UIFont fontWithName:@"Helvetica Neue" size:16]];
+    [courseCodeLabel center];
+    courseCodeLabel.text = course.courseCode;
+    [cell.contentView addSubview:courseCodeLabel];
+    
+    // Set up the rest of the cell
+    UILabel *courseDescLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 0, 235, 60)];
+    courseDescLabel.numberOfLines = 3;
+    courseDescLabel.font = [UIFont fontWithName:@"Helvetica" size:13];
+    courseDescLabel.text = [NSString stringWithFormat:@"%@, %@", course.courseName, course.courseTime];
+    [courseDescLabel center];
+    [cell.contentView addSubview:courseDescLabel];
+    // Set the background to be transparent
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
@@ -98,6 +108,10 @@
     courseViewController.myDataBase = _myDatabase;
     courseViewController.userEmail = _userEmail;
     [self.navigationController pushViewController:courseViewController animated:YES];
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
 }
 
 - (IBAction)addNewItem:(id)sender
@@ -162,6 +176,7 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    
 }
 */
 
