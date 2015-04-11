@@ -42,9 +42,13 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     _courseArray = [[NSMutableArray alloc] initWithArray:[_myDatabase getRegisteredCourseList:_userEmail]];
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"AddedCourseCell"];
+    UIImage *background = [UIImage imageNamed:@"backgroundHome.png"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:background];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -77,7 +81,10 @@
     //NSArray *courses = [[CourseList sharedCourseList] allCourses];
     
     Course *course = [_courseArray objectAtIndex:indexPath.row];
+    cell.textLabel.numberOfLines = 2;
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
     cell.textLabel.text = course.description;
+    cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", course.professor, course.courseTime];
     
     return cell;

@@ -67,7 +67,7 @@
     registeredCourses = [[NSMutableArray alloc] initWithArray:[_myDataBase getRegisteredCourseList:_userEmail]];
     filteredCourseArray = initialCourseArray;
     [self filtArray];
-    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundHome.png"]];
     
     [self.tableView reloadData];
 }
@@ -116,8 +116,6 @@
     return @"Add";
 }
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellId = @"createCourseCell";
@@ -129,9 +127,17 @@
     }
     // First get the course
     Course *newCourse = [filteredCourseArray objectAtIndex:indexPath.row];
+    cell.textLabel.numberOfLines = 2;
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:11];
     cell.textLabel.text = newCourse.description;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", newCourse.professor, newCourse.location];
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 65;
 }
 
 // Override to support conditional editing of the table view.

@@ -5,11 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< Updated upstream
 	<string>071F036F-AC6B-4F5D-9912-4028375DF1A8</string>
+=======
+	<string>CB980007-D991-43AB-8D39-064FB1707239</string>
+>>>>>>> Stashed changes
 	<key>IDESourceControlProjectName</key>
 	<string>ClassBuddyInterface</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+<<<<<<< Updated upstream
 		<key>790B35B3-4253-4A6F-B9BB-C4F6E55A515B</key>
 		<string>https://github.com/EasonWang90/IOS-Projects.git</string>
 	</dict>
@@ -18,21 +23,41 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>790B35B3-4253-4A6F-B9BB-C4F6E55A515B</key>
+=======
+		<key>D91963E0E98175FC6277FA11C9F2585617CBA277</key>
+		<string>https://github.com/EasonWang90/IOS-Projects.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ClassBuddy/ClassBuddyInterface.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D91963E0E98175FC6277FA11C9F2585617CBA277</key>
+>>>>>>> Stashed changes
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/EasonWang90/IOS-Projects.git</string>
 	<key>IDESourceControlProjectVersion</key>
+<<<<<<< Updated upstream
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
 	<string>790B35B3-4253-4A6F-B9BB-C4F6E55A515B</string>
+=======
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D91963E0E98175FC6277FA11C9F2585617CBA277</string>
+>>>>>>> Stashed changes
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+<<<<<<< Updated upstream
 			<string>790B35B3-4253-4A6F-B9BB-C4F6E55A515B</string>
+=======
+			<string>D91963E0E98175FC6277FA11C9F2585617CBA277</string>
+>>>>>>> Stashed changes
 			<key>IDESourceControlWCCName</key>
 			<string>IOS-Projects</string>
 		</dict>
