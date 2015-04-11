@@ -43,7 +43,7 @@
     _alarmDate = [self.datePicker date];
     
     NSDateFormatter *outputDateFormatter = [[NSDateFormatter alloc] init];
-    [outputDateFormatter setDateStyle:NSDateFormatterFullStyle];
+    [outputDateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [outputDateFormatter setTimeStyle:NSDateFormatterMediumStyle];
     NSString *dueDateString = [outputDateFormatter stringFromDate:_dueDate];
     NSString *alarmDateString = [outputDateFormatter stringFromDate:_alarmDate];
