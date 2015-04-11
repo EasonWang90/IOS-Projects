@@ -126,6 +126,7 @@
         
         
         Event *event = [_unfinishedEventList objectAtIndex:indexPath.row];
+        _finishedEvent = [_unfinishedEventList objectAtIndex:indexPath.row];
         if([_myDataBase finishedAnEvent:_courseCode UserEmail:_userEmail EventName:event.eventName])
         {
             //[_unfinishedEventList removeObjectIdenticalTo:event];
@@ -188,7 +189,7 @@
     BOOL isSuccessful = NO;
     if (!isSuccessful) {
         [self performPublishAction:^{
-            NSString *message = [NSString stringWithFormat:@"I successfully finished work at %@. Thanks ClassBuddy!", [NSDate date]];
+            NSString *message = [NSString stringWithFormat:@"I successfully finished %@ %@ at %@. Thanks ClassBuddy!", _courseCode,_finishedEvent.eventName, _finishedEvent.alarmDate];
             
             FBRequestConnection *connection = [[FBRequestConnection alloc] init];
             
