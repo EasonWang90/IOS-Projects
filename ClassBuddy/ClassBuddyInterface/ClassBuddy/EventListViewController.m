@@ -112,6 +112,19 @@
     //NSArray *ipath = [NSArray arrayWithObject:indexPath];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         /*Set the finished from 0 to 1*/
+        NSArray *localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+        NSLog(@"%d",[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
+        int notificationCount =[[[UIApplication sharedApplication] scheduledLocalNotifications]count];
+        if (notificationCount != 0) {
+            UILocalNotification *localNotification = [localNotifications objectAtIndex:indexPath.row];
+            NSLog(@"row:%d",[indexPath row]);
+            // NSLog(@"%@",localNotification);
+            //localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] - 1;
+            [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
+            NSLog(@"%d",[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
+        }
+        
+        
         Event *event = [_unfinishedEventList objectAtIndex:indexPath.row];
         if([_myDataBase finishedAnEvent:_courseCode UserEmail:_userEmail EventName:event.eventName])
         {
@@ -122,14 +135,7 @@
             NSLog(@"Event not removed!");
         
         [_unfinishedEventList removeObjectIdenticalTo:event];
-        NSArray *localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
-       // NSLog(@"%d",[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
-        //UILocalNotification *localNotification = [localNotifications objectAtIndex:indexPath.row];
-       // NSLog(@"row:%d",[indexPath row]);
-       // NSLog(@"%@",localNotification);
-        //localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] - 1;
-        //[[UIApplication sharedApplication] cancelLocalNotification:localNotification];
-       // NSLog(@"%d",[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
+       
         
         // Delete the row from the data source
         
@@ -264,6 +270,16 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSArray *localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    if ([localNotifications count] != 0) {
+        UILocalNotification *localNotification = [localNotifications objectAtIndex:indexPath.row];
+        NSLog(@"row:%d",[indexPath row]);
+        // NSLog(@"%@",localNotification);
+        //localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] - 1;
+        [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
+        NSLog(@"%d",[[[UIApplication sharedApplication] scheduledLocalNotifications]count]);
+    }
+
     Event *selectedEvent = [_unfinishedEventList objectAtIndex:indexPath.row];
     ResetAlarmViewController * resetAlarmViewController = [[ResetAlarmViewController alloc] initWithNibName:@"ResetAlarmViewController" bundle:nil];
     resetAlarmViewController.event = selectedEvent;
