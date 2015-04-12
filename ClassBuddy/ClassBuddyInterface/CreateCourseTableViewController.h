@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *initialCourseArray;
 @property (nonatomic, strong) NSMutableArray *registeredCourses;
 @property (nonatomic, strong) NSMutableArray *filteredCourseArray;
-@property IBOutlet UISearchBar *courseSearchBar;
+@property (nonatomic) UISearchDisplayController *courseSearchDisplayController;
 @property (nonatomic) DBManager *myDataBase;
 @property (weak, nonatomic) NSString *userEmail;
 

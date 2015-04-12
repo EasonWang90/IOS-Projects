@@ -19,6 +19,8 @@
 
 @end
 
+@class UISearchDisplayController;
+
 @implementation CreateCourseTableViewController
 
 @synthesize initialCourseArray;
@@ -51,6 +53,17 @@
     [self filtArray];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundHome.png"]];
     
+    // Set up the search bar when the page loads
+    UISearchBar *searchBar = [[UISearchBar alloc] init];
+    self.courseSearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+    self.courseSearchDisplayController.searchResultsDelegate = self;
+    self.courseSearchDisplayController.searchResultsDataSource = self;
+    self.courseSearchDisplayController.delegate = self;
+    searchBar.frame = CGRectMake(0, 0, 0, 38);
+    searchBar.placeholder = @"Search by Course ID";
+    
+    self.tableView.tableHeaderView = searchBar;
+    
     [self.tableView reloadData];
 }
 
@@ -76,12 +89,33 @@
     [self.navigationController pushViewController:confirmCourseViewController animated:YES];
 }
 
+#pragma mark - Search Results
+// Filter results based on text entered
+-(void)filterContentForSearch:(NSString *)searchText scope:(NSString *)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF.courseCode contains[c] %@", searchText];
+    
+    self.filteredCourseArray = (NSMutableArray *)[filteredCourseArray filteredArrayUsingPredicate:resultPredicate];
+}
+
+// Reload the table to show results as text is entered
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearch:searchString scope:[[self.courseSearchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.courseSearchDisplayController.searchBar selectedScopeButtonIndex]]];
+    return YES;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [filteredCourseArray count];
+    if(tableView == self.tableView) {
+        return [initialCourseArray count];
+    }
+    else {
+        return [filteredCourseArray count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,9 +139,13 @@
     
     // Set the right button for the cell and set up the callback to addRegisteredCourseAt...
     cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@" Add " backgroundColor:[UIColor colorWithRed:0.1 green:0.75 blue:0.9 alpha:0.6] callback:^BOOL(MGSwipeTableCell *sender){
-        [self addRegisteredCourseAt:indexPath forTableView:tableView];
+        if (tableView == self.searchDisplayController.searchResultsTableView)
+            [self addRegisteredCourseAt:tableView.indexPathForSelectedRow forTableView:tableView];
+        else
+            [self addRegisteredCourseAt:indexPath forTableView:tableView];
         return YES;
     }]];
+    
     // Set the transition type to MGSwipeTransition3D
     cell.rightSwipeSettings.transition = MGSwipeTransition3D;
     
@@ -124,14 +162,25 @@
 -(void)addRegisteredCourseAt:(NSIndexPath *)indexPath forTableView:(UITableView *)tableView
 {
     // Delete the row from the data source and add it to the Registered courses.
-        Course *selectedCourse = [initialCourseArray objectAtIndex:indexPath.row];
-        NSString *courseCode = selectedCourse.courseCode;
-        
-        [_myDataBase registerACourseCourseCode:courseCode UserEmail:_userEmail];
-        [_myDataBase getRegisteredCourseList:_userEmail];
+    Course *selectedCourse;
+    
+    // The index path depends on whether the course was selected from the full list
+    // or a filtered search list
+    if(tableView == self.searchDisplayController.searchResultsTableView) {
+        selectedCourse = [filteredCourseArray objectAtIndex:indexPath.row];
+        [filteredCourseArray removeObjectIdenticalTo:selectedCourse];
+    }
+    else {
+        selectedCourse = [initialCourseArray objectAtIndex:indexPath.row];
         [initialCourseArray removeObjectAtIndex:indexPath.row];
-        
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    
+    NSString *courseCode = selectedCourse.courseCode;
+    
+    [_myDataBase registerACourseCourseCode:courseCode UserEmail:_userEmail];
+    [_myDataBase getRegisteredCourseList:_userEmail];
+    
+  // [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (NSArray *)filtArray
