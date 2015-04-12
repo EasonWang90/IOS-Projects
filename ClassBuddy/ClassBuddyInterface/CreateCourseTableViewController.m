@@ -12,31 +12,12 @@
 #import "Course.h"
 #import "DBManager.h"
 #import "CourseListTableViewController.h"
+#import "MGSwipeButton.h"
+#import "MGSwipeTableCell.h"
 
 @interface CreateCourseTableViewController ()
 
 @end
-
-
-@implementation UITableViewCell (customdelete)
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    UIColor *colour = [UIColor colorWithRed:0.1 green:0.75 blue:0.9 alpha:0.6];
-    for (UIView *subview in self.subviews) {
-        //iterate through subviews until UITableViewCellDeleteConfirmationView
-        for(UIView *subview2 in subview.subviews){
-            if ([NSStringFromClass([subview2 class]) isEqualToString:@"UITableViewCellDeleteConfirmationView"]) {
-                //Set background to custom blue color
-                ((UIView*)[subview2.subviews firstObject]).backgroundColor=colour;
-            }
-        }
-    }
-}
-
-@end
-
 
 @implementation CreateCourseTableViewController
 
@@ -103,31 +84,33 @@
     return [filteredCourseArray count];
 }
 
-
-- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *editCell = [tableView cellForRowAtIndexPath:indexPath];
-    [editCell setNeedsLayout];
-    return @"Add";
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellId = @"createCourseCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    MGSwipeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
    
     if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+        cell = [[MGSwipeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    // First get the course
+    // First get the corresponding course
     Course *newCourse = [filteredCourseArray objectAtIndex:indexPath.row];
-    // Set its attributes
+    
+    // Set the cells attributes
     cell.textLabel.numberOfLines = 3;
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
     cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:11];
     cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
     cell.textLabel.text = newCourse.description;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", newCourse.professor, newCourse.location];
+    
+    // Set the right button for the cell and set up the callback to addRegisteredCourseAt...
+    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@" Add " backgroundColor:[UIColor colorWithRed:0.1 green:0.75 blue:0.9 alpha:0.6] callback:^BOOL(MGSwipeTableCell *sender){
+        [self addRegisteredCourseAt:indexPath forTableView:tableView];
+        return YES;
+    }]];
+    // Set the transition type to MGSwipeTransition3D
+    cell.rightSwipeSettings.transition = MGSwipeTransition3D;
+    
     // Return the cell
     return cell;
 }
@@ -138,18 +121,9 @@
     return 65;
 }
 
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)addRegisteredCourseAt:(NSIndexPath *)indexPath forTableView:(UITableView *)tableView
 {
-    // Return YES to allow conditional editing
-    return YES;
-}
-
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source and add it to the Registered courses.
+    // Delete the row from the data source and add it to the Registered courses.
         Course *selectedCourse = [initialCourseArray objectAtIndex:indexPath.row];
         NSString *courseCode = selectedCourse.courseCode;
         
@@ -158,11 +132,6 @@
         [initialCourseArray removeObjectAtIndex:indexPath.row];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }
-    else /*** As of right now we aren't adding new rows ***/
-        if (editingStyle == UITableViewCellEditingStyleInsert) {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
 }
 
 - (NSArray *)filtArray

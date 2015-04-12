@@ -43,6 +43,8 @@
 		FC53D4E41AD9B005003ACB64 /* CourseListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC53D4E31AD9B005003ACB64 /* CourseListTableViewController.m */; };
 		FC961AF21AC43C9C00204A09 /* CreateCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC961AF11AC43C9C00204A09 /* CreateCourseTableViewController.m */; };
 		FCC479001AC976B700E40749 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC478FF1AC976B700E40749 /* FacebookSDK.framework */; };
+		FCFB75DD1AD9F70A00C3665B /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFB75DA1AD9F70A00C3665B /* MGSwipeButton.m */; };
+		FCFB75DE1AD9F70A00C3665B /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFB75DC1AD9F70A00C3665B /* MGSwipeTableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,10 @@
 		FC961AF01AC43C9C00204A09 /* CreateCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCourseTableViewController.h; sourceTree = "<group>"; };
 		FC961AF11AC43C9C00204A09 /* CreateCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCourseTableViewController.m; sourceTree = "<group>"; };
 		FCC478FF1AC976B700E40749 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		FCFB75D91AD9F70A00C3665B /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
+		FCFB75DA1AD9F70A00C3665B /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
+		FCFB75DB1AD9F70A00C3665B /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
+		FCFB75DC1AD9F70A00C3665B /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +226,10 @@
 				6AE3E4571AD71334005CBEBA /* ResetAlarmViewController.h */,
 				6AE3E4581AD71334005CBEBA /* ResetAlarmViewController.m */,
 				6AE3E4591AD71334005CBEBA /* ResetAlarmViewController.xib */,
+				FCFB75D91AD9F70A00C3665B /* MGSwipeButton.h */,
+				FCFB75DA1AD9F70A00C3665B /* MGSwipeButton.m */,
+				FCFB75DB1AD9F70A00C3665B /* MGSwipeTableCell.h */,
+				FCFB75DC1AD9F70A00C3665B /* MGSwipeTableCell.m */,
 				FC0C6E0C1AC27A61006F688D /* main.m */,
 				FC0C6E371AC27AAE006F688D /* logo.jpg */,
 				FC0C6E391AC28046006F688D /* backgroundHome.png */,
@@ -356,11 +366,13 @@
 				6AE3E45A1AD71334005CBEBA /* ResetAlarmViewController.m in Sources */,
 				6A3AD2CA1AD5E4ED00268AB7 /* EventListViewController.m in Sources */,
 				FC42B0F81AC5BD8200944C49 /* EventList.m in Sources */,
+				FCFB75DE1AD9F70A00C3665B /* MGSwipeTableCell.m in Sources */,
 				FC4F520D1AC4656C005C5C67 /* Event.m in Sources */,
 				FC0C6E111AC27A61006F688D /* AppDelegate.m in Sources */,
 				FC4F520A1AC4655D005C5C67 /* Course.m in Sources */,
 				6AA6274C1ACF676C00148459 /* DBManager.m in Sources */,
 				FC4F52161AC467FA005C5C67 /* Person.m in Sources */,
+				FCFB75DD1AD9F70A00C3665B /* MGSwipeButton.m in Sources */,
 				FC0C6E0D1AC27A61006F688D /* main.m in Sources */,
 				6A66D5801AC8CE3400464939 /* CourseViewController.m in Sources */,
 				FC53D4E41AD9B005003ACB64 /* CourseListTableViewController.m in Sources */,
