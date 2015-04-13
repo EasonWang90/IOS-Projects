@@ -225,6 +225,7 @@
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
 {
+    // Maintain the row height and background image when searching
     tableView.rowHeight = 65;
     tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundHome.png"]];
 }
