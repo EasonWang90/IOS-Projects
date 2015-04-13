@@ -14,7 +14,7 @@
 #import "CourseListTableViewController.h"
 #import "MGSwipeButton.h"
 #import "MGSwipeTableCell.h"
-
+#import "CusTableViewCell.h"
 @interface CreateCourseTableViewController ()
 
 @end
@@ -112,10 +112,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellId = @"createCourseCell";
-    MGSwipeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    CusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
    
     if(cell == nil) {
-        cell = [[MGSwipeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+        cell = [[CusTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
     // First get the corresponding course
     
@@ -144,7 +144,7 @@
     }]];
      */
     // Set the transition type to MGSwipeTransition3D
-    cell.rightSwipeSettings.transition = MGSwipeTransition3D;
+    //cell.rightSwipeSettings.transition = MGSwipeTransition3D;
     
     // Return the cell
     return cell;
@@ -195,6 +195,11 @@
         [filteredCourseArray removeObjectIdenticalTo:selectedCourse];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
+}
+-(void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CusTableViewCell *cell = (CusTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    [cell overrideConfirmationButtonColor];
 }
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
     return @"Add";

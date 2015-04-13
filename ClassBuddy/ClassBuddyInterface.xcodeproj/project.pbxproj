@@ -17,6 +17,7 @@
 		6AA6274C1ACF676C00148459 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA6274B1ACF676C00148459 /* DBManager.m */; };
 		6AE3E45A1AD71334005CBEBA /* ResetAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE3E4581AD71334005CBEBA /* ResetAlarmViewController.m */; };
 		6AE3E45B1AD71334005CBEBA /* ResetAlarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AE3E4591AD71334005CBEBA /* ResetAlarmViewController.xib */; };
+		BC55A87C1ADB5EB400BBE6C6 /* CusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC55A87B1ADB5EB400BBE6C6 /* CusTableViewCell.m */; };
 		FC0C6E011AC27A61006F688D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC0C6E001AC27A61006F688D /* Foundation.framework */; };
 		FC0C6E031AC27A61006F688D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC0C6E021AC27A61006F688D /* CoreGraphics.framework */; };
 		FC0C6E051AC27A61006F688D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC0C6E041AC27A61006F688D /* UIKit.framework */; };
@@ -73,6 +74,8 @@
 		6AE3E4571AD71334005CBEBA /* ResetAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetAlarmViewController.h; sourceTree = "<group>"; };
 		6AE3E4581AD71334005CBEBA /* ResetAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetAlarmViewController.m; sourceTree = "<group>"; };
 		6AE3E4591AD71334005CBEBA /* ResetAlarmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetAlarmViewController.xib; sourceTree = "<group>"; };
+		BC55A87A1ADB5EB400BBE6C6 /* CusTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CusTableViewCell.h; sourceTree = "<group>"; };
+		BC55A87B1ADB5EB400BBE6C6 /* CusTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CusTableViewCell.m; sourceTree = "<group>"; };
 		FC0C6DFD1AC27A61006F688D /* ClassBuddyInterface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassBuddyInterface.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC0C6E001AC27A61006F688D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FC0C6E021AC27A61006F688D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -211,6 +214,8 @@
 				FC53D4E31AD9B005003ACB64 /* CourseListTableViewController.m */,
 				FC961AF01AC43C9C00204A09 /* CreateCourseTableViewController.h */,
 				FC961AF11AC43C9C00204A09 /* CreateCourseTableViewController.m */,
+				BC55A87A1ADB5EB400BBE6C6 /* CusTableViewCell.h */,
+				BC55A87B1ADB5EB400BBE6C6 /* CusTableViewCell.m */,
 				FC0C6E511AC29110006F688D /* ConfirmCourseViewController.h */,
 				FC0C6E521AC29110006F688D /* ConfirmCourseViewController.m */,
 				FC0C6E531AC29110006F688D /* ConfirmCourseViewController.xib */,
@@ -368,6 +373,7 @@
 				FC42B0F81AC5BD8200944C49 /* EventList.m in Sources */,
 				FCFB75DE1AD9F70A00C3665B /* MGSwipeTableCell.m in Sources */,
 				FC4F520D1AC4656C005C5C67 /* Event.m in Sources */,
+				BC55A87C1ADB5EB400BBE6C6 /* CusTableViewCell.m in Sources */,
 				FC0C6E111AC27A61006F688D /* AppDelegate.m in Sources */,
 				FC4F520A1AC4655D005C5C67 /* Course.m in Sources */,
 				6AA6274C1ACF676C00148459 /* DBManager.m in Sources */,
