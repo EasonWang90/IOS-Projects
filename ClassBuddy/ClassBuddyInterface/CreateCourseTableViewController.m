@@ -12,9 +12,8 @@
 #import "Course.h"
 #import "DBManager.h"
 #import "CourseListTableViewController.h"
-#import "MGSwipeButton.h"
-#import "MGSwipeTableCell.h"
 #import "CusTableViewCell.h"
+
 @interface CreateCourseTableViewController ()
 
 @end
@@ -136,16 +135,6 @@
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", newCourse.professor, newCourse.location];
     }
     
-    // Set the right button for the cell and set up the callback to addRegisteredCourseAt...
-    /*
-    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@" Add " backgroundColor:[UIColor colorWithRed:0.1 green:0.75 blue:0.9 alpha:0.6] callback:^BOOL(MGSwipeTableCell *sender){
-        [self addRegisteredCourseAt:indexPath forTableView:tableView];
-        return YES;
-    }]];
-     */
-    // Set the transition type to MGSwipeTransition3D
-    //cell.rightSwipeSettings.transition = MGSwipeTransition3D;
-    
     // Return the cell
     return cell;
 }
@@ -156,10 +145,11 @@
     return 65;
 }
 
+/*
 -(void)addRegisteredCourseAt:(NSIndexPath *)indexPath forTableView:(UITableView *)tableView
 {
     // Delete the row from the data source and add it to the Registered courses.
-    NSLog(@"adding row:%d",indexPath.row);
+    NSLog(@"adding row:%lu",indexPath.row);
     NSString *courseCode;
     Course *selectedCourse;
     if (self.searchResults.count > 0) {
@@ -176,6 +166,8 @@
     [filteredCourseArray removeObjectIdenticalTo:selectedCourse];
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
+*/
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     //NSArray *ipath = [NSArray arrayWithObject:indexPath];
     if (editingStyle == UITableViewCellEditingStyleDelete){
@@ -196,14 +188,20 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
+
+
 -(void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CusTableViewCell *cell = (CusTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     [cell overrideConfirmationButtonColor];
 }
+
+
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
     return @"Add";
 }
+
+
 - (NSArray *)filtArray
 {
     int j;
@@ -222,6 +220,8 @@
     }
     return filteredCourseArray;
 }
+
+
 - (void)filterListForSearchText:(NSString *)searchText
 {
     [self.searchResults removeAllObjects]; //clears the array from all the string objects it might contain from the previous searches
@@ -234,6 +234,8 @@
         }
     }
 }
+
+
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
     //When the user taps the search bar, this means that the controller will begin searching.
     self.isSearching = YES;
@@ -244,10 +246,18 @@
     self.isSearching = NO;
     [self.tableView reloadData];
 }
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
+{
+    tableView.rowHeight = 65;
+    tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundHome.png"]];
+   // CusTableViewCell *searchTableCell = (CusTableViewCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+   // [searchTableCell overrideConfirmationButtonColor];
+}
+
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     [self filterListForSearchText:searchString];
-    
     // Return YES to cause the search result table view to be reloaded.
     return YES;
 }
