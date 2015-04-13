@@ -137,10 +137,12 @@
     }
     
     // Set the right button for the cell and set up the callback to addRegisteredCourseAt...
+    /*
     cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@" Add " backgroundColor:[UIColor colorWithRed:0.1 green:0.75 blue:0.9 alpha:0.6] callback:^BOOL(MGSwipeTableCell *sender){
         [self addRegisteredCourseAt:indexPath forTableView:tableView];
         return YES;
     }]];
+     */
     // Set the transition type to MGSwipeTransition3D
     cell.rightSwipeSettings.transition = MGSwipeTransition3D;
     
@@ -174,7 +176,29 @@
     [filteredCourseArray removeObjectIdenticalTo:selectedCourse];
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
-
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    //NSArray *ipath = [NSArray arrayWithObject:indexPath];
+    if (editingStyle == UITableViewCellEditingStyleDelete){
+        NSString *courseCode;
+        Course *selectedCourse;
+        if (self.searchResults.count > 0) {
+            selectedCourse = [self.searchResults objectAtIndex:indexPath.row];
+            courseCode = selectedCourse.courseCode;
+            [self.searchResults removeObjectIdenticalTo:selectedCourse];
+        }
+        else{
+            selectedCourse = [filteredCourseArray objectAtIndex:indexPath.row];
+            courseCode = selectedCourse.courseCode;
+        }
+        [_myDataBase registerACourseCourseCode:courseCode UserEmail:_userEmail];
+        [_myDataBase getRegisteredCourseList:_userEmail];
+        [filteredCourseArray removeObjectIdenticalTo:selectedCourse];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @"Add";
+}
 - (NSArray *)filtArray
 {
     int j;
