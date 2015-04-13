@@ -104,10 +104,10 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", newCourse.professor, newCourse.location];
     
     // Set the right button for the cell and set up the callback to addRegisteredCourseAt...
-    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@" Add " backgroundColor:[UIColor colorWithRed:0.1 green:0.75 blue:0.9 alpha:0.6] callback:^BOOL(MGSwipeTableCell *sender){
+    /*cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@" Add " backgroundColor:[UIColor colorWithRed:0.1 green:0.75 blue:0.9 alpha:0.6] callback:^BOOL(MGSwipeTableCell *sender){
         [self addRegisteredCourseAt:indexPath forTableView:tableView];
         return YES;
-    }]];
+    }]];*/
     // Set the transition type to MGSwipeTransition3D
     cell.rightSwipeSettings.transition = MGSwipeTransition3D;
     
@@ -120,10 +120,27 @@
 {
     return 65;
 }
-
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    //NSArray *ipath = [NSArray arrayWithObject:indexPath];
+    if (editingStyle == UITableViewCellEditingStyleDelete){
+        Course *selectedCourse = [initialCourseArray objectAtIndex:indexPath.row];
+        NSString *courseCode = selectedCourse.courseCode;
+        
+        [_myDataBase registerACourseCourseCode:courseCode UserEmail:_userEmail];
+        [_myDataBase getRegisteredCourseList:_userEmail];
+        [initialCourseArray removeObjectAtIndex:indexPath.row];
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @"Add";
+}
 -(void)addRegisteredCourseAt:(NSIndexPath *)indexPath forTableView:(UITableView *)tableView
 {
     // Delete the row from the data source and add it to the Registered courses.
+    NSLog(@"course row %d",indexPath.row);
         Course *selectedCourse = [initialCourseArray objectAtIndex:indexPath.row];
         NSString *courseCode = selectedCourse.courseCode;
         
