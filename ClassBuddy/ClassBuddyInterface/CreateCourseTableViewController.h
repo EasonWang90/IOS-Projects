@@ -11,13 +11,16 @@
 #import "DBManager.h"
 #import "Person.h"
 
-@interface CreateCourseTableViewController : UITableViewController <UISearchDisplayDelegate, UISearchBarDelegate, UITableViewDelegate>
-
+@interface CreateCourseTableViewController : UITableViewController <UISearchDisplayDelegate, UISearchBarDelegate, UITableViewDelegate,UITableViewDataSource>{
+    UISearchBar *searchBar;
+    UISearchDisplayController *searchDisplayController;
+}
+@property (nonatomic, strong) NSMutableArray *searchResults;
 @property (nonatomic, strong) NSMutableArray *initialCourseArray;
 @property (nonatomic, strong) NSMutableArray *registeredCourses;
 @property (nonatomic, strong) NSMutableArray *filteredCourseArray;
-@property IBOutlet UISearchBar *courseSearchBar;
 @property (nonatomic) DBManager *myDataBase;
+@property (nonatomic)BOOL isSearching;
 @property (weak, nonatomic) NSString *userEmail;
 
 @end
