@@ -116,8 +116,6 @@
     if(cell == nil) {
         cell = [[CusTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    // First get the corresponding course
-    
     
     // Set the cells attributes
     cell.textLabel.numberOfLines = 3;
@@ -145,28 +143,6 @@
     return 65;
 }
 
-/*
--(void)addRegisteredCourseAt:(NSIndexPath *)indexPath forTableView:(UITableView *)tableView
-{
-    // Delete the row from the data source and add it to the Registered courses.
-    NSLog(@"adding row:%lu",indexPath.row);
-    NSString *courseCode;
-    Course *selectedCourse;
-    if (self.searchResults.count > 0) {
-        selectedCourse = [self.searchResults objectAtIndex:indexPath.row];
-        courseCode = selectedCourse.courseCode;
-        [self.searchResults removeObjectIdenticalTo:selectedCourse];
-    }
-    else{
-        selectedCourse = [filteredCourseArray objectAtIndex:indexPath.row];
-        courseCode = selectedCourse.courseCode;
-    }
-    [_myDataBase registerACourseCourseCode:courseCode UserEmail:_userEmail];
-    [_myDataBase getRegisteredCourseList:_userEmail];
-    [filteredCourseArray removeObjectIdenticalTo:selectedCourse];
-    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-}
-*/
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     //NSArray *ipath = [NSArray arrayWithObject:indexPath];
@@ -251,8 +227,6 @@
 {
     tableView.rowHeight = 65;
     tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundHome.png"]];
-   // CusTableViewCell *searchTableCell = (CusTableViewCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
-   // [searchTableCell overrideConfirmationButtonColor];
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
