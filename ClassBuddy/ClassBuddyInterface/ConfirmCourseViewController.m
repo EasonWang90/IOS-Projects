@@ -41,13 +41,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Set the text fields delegate to self
     self.courseCodeField.delegate = self;
     self.courseNameField.delegate = self;
     self.dateTimeField.delegate = self;
     self.professorField.delegate = self;
     self.locationField.delegate = self;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundHome.png"]];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,10 +77,9 @@
 {
     if(!_course && _courseCodeField.text && _courseNameField.text && _locationField.text) {
         _course = [[Course alloc] initWithName:_courseNameField.text CourseCode:_courseCodeField.text CourseTime:_dateTimeField.text Professor:_professorField.text Location:_locationField.text];
-        //[[CourseList sharedCourseList] addCourse:_course];
         
         if([_myDataBase createNewCourse:_course])
-            NSLog(@"Crouse created!");
+            NSLog(@"Course created!");
         else
             NSLog(@"Course not created!");
         

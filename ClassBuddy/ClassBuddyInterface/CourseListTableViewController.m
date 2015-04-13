@@ -73,10 +73,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AddedCourseCell"];
-    // Set the text on the cell to the courses description
-    //NSArray *courses = [[CourseList sharedCourseList] allCourses];
+    // Get the course and setup the cell accessory
     Course *course = [_courseArray objectAtIndex:indexPath.row];
-    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     // Add the course code label to the cells view
     UILabel *courseCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 60)];

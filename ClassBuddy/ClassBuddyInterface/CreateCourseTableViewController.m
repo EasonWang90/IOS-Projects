@@ -174,7 +174,7 @@
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return @"Add";
+    return @"Register";
 }
 
 
