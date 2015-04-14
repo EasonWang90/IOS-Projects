@@ -36,6 +36,8 @@
 		FC0C6E3A1AC28046006F688D /* backgroundHome.png in Resources */ = {isa = PBXBuildFile; fileRef = FC0C6E391AC28046006F688D /* backgroundHome.png */; };
 		FC0C6E541AC29110006F688D /* ConfirmCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0C6E521AC29110006F688D /* ConfirmCourseViewController.m */; };
 		FC0C6E551AC29110006F688D /* ConfirmCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC0C6E531AC29110006F688D /* ConfirmCourseViewController.xib */; };
+		FC3EB5331ADD52BF008FA789 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FC3EB5321ADD52BF008FA789 /* Default.png */; };
+		FC3EB5351ADD52D0008FA789 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FC3EB5341ADD52D0008FA789 /* Icon.png */; };
 		FC42B0F51AC5BD5400944C49 /* CourseList.m in Sources */ = {isa = PBXBuildFile; fileRef = FC42B0F41AC5BD5400944C49 /* CourseList.m */; };
 		FC42B0F81AC5BD8200944C49 /* EventList.m in Sources */ = {isa = PBXBuildFile; fileRef = FC42B0F71AC5BD8200944C49 /* EventList.m */; };
 		FC4F520A1AC4655D005C5C67 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4F52091AC4655D005C5C67 /* Course.m */; };
@@ -99,6 +101,8 @@
 		FC0C6E511AC29110006F688D /* ConfirmCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmCourseViewController.h; sourceTree = "<group>"; };
 		FC0C6E521AC29110006F688D /* ConfirmCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmCourseViewController.m; sourceTree = "<group>"; };
 		FC0C6E531AC29110006F688D /* ConfirmCourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmCourseViewController.xib; sourceTree = "<group>"; };
+		FC3EB5321ADD52BF008FA789 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FC3EB5341ADD52D0008FA789 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		FC42B0F31AC5BD5400944C49 /* CourseList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseList.h; sourceTree = "<group>"; };
 		FC42B0F41AC5BD5400944C49 /* CourseList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseList.m; sourceTree = "<group>"; };
 		FC42B0F61AC5BD8200944C49 /* EventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventList.h; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 		FC0C6DF41AC27A61006F688D = {
 			isa = PBXGroup;
 			children = (
+				FC3EB5341ADD52D0008FA789 /* Icon.png */,
+				FC3EB5321ADD52BF008FA789 /* Default.png */,
 				6AA6274A1ACF676C00148459 /* DBManager.h */,
 				6AA6274B1ACF676C00148459 /* DBManager.m */,
 				FC0C6E061AC27A61006F688D /* ClassBuddyInterface */,
@@ -326,6 +332,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC3EB5351ADD52D0008FA789 /* Icon.png in Resources */,
 				FC0C6E551AC29110006F688D /* ConfirmCourseViewController.xib in Resources */,
 				6A66D5811AC8CE3400464939 /* CourseViewController.xib in Resources */,
 				6AE3E45B1AD71334005CBEBA /* ResetAlarmViewController.xib in Resources */,
@@ -336,6 +343,7 @@
 				6A3AD2CB1AD5E4ED00268AB7 /* EventListViewController.xib in Resources */,
 				FC0C6E3A1AC28046006F688D /* backgroundHome.png in Resources */,
 				FC0C6E361AC27A9E006F688D /* HomeViewController.xib in Resources */,
+				FC3EB5331ADD52BF008FA789 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,8 +493,6 @@
 		FC0C6E2A1AC27A61006F688D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/iosdev/Documents/FacebookSDK,
@@ -505,8 +511,6 @@
 		FC0C6E2B1AC27A61006F688D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/iosdev/Documents/FacebookSDK,
